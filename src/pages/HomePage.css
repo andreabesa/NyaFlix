@@ -1,0 +1,100 @@
+/* ── HERO ── */
+.home-hero {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; overflow: hidden; position: relative;
+  min-height: 260px;
+}
+.home-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, var(--accent-light) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-greeting { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+.hero-name { font-size: 38px; font-weight: 700; letter-spacing: -1px; color: var(--text-primary); margin-bottom: 20px; }
+
+.hero-stats { display: flex; gap: 32px; margin-bottom: 24px; }
+.hstat { display: flex; flex-direction: column; align-items: center; }
+.hstat span { font-size: 24px; font-weight: 700; color: var(--accent); }
+.hstat small { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.hero-actions { display: flex; gap: 10px; }
+.hero-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 20px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; border: none;
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.hero-btn.primary { background: var(--accent); color: #fff; }
+.hero-btn.primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.hero-btn.secondary { background: var(--bg-hover); color: var(--text-primary); border: 1px solid var(--border); }
+.hero-btn.secondary:hover { background: var(--bg-elevated); }
+
+.hero-decoration {
+  display: flex; gap: -20px; position: relative;
+  height: 180px;
+}
+.hero-float-img {
+  width: 100px; height: 150px; object-fit: cover;
+  border-radius: 10px; border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  position: absolute;
+}
+.hero-float-img:nth-child(1) { left: 0; top: 10px; z-index: 3; transform: rotate(-4deg); }
+.hero-float-img:nth-child(2) { left: 70px; top: 0; z-index: 2; transform: rotate(1deg); }
+.hero-float-img:nth-child(3) { left: 140px; top: 15px; z-index: 1; transform: rotate(5deg); }
+
+/* ── BODY ── */
+.home-body { padding: 32px 40px; display: flex; flex-direction: column; gap: 40px; }
+.home-section {}
+
+.section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.section-header h2 {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-primary);
+}
+.section-header h2 svg { color: var(--accent); }
+.section-header button {
+  font-size: 13px; color: var(--accent); background: none; border: none;
+  cursor: pointer; font-weight: 600; font-family: inherit;
+}
+.section-header button:hover { text-decoration: underline; }
+
+/* ── CARD GRID ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+/* ── CONTINUE WATCHING ── */
+.continue-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.continue-card {
+  display: flex; gap: 12px; align-items: center;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.continue-card:hover { background: var(--bg-elevated); border-color: var(--border-strong); }
+.continue-img { width: 44px; height: 60px; border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+.continue-img img { width: 100%; height: 100%; object-fit: cover; }
+.continue-info { flex: 1; min-width: 0; }
+.continue-title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.continue-sub { font-size: 11px; color: var(--text-muted); margin: 3px 0; }
+.continue-bar { height: 3px; background: var(--bg-elevated); border-radius: 2px; overflow: hidden; }
+.continue-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
+.continue-airing { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .home-hero { padding: 28px 20px; flex-direction: column; }
+  .hero-name { font-size: 28px; }
+  .hero-decoration { display: none; }
+  .home-body { padding: 20px 16px; }
+}

@@ -1,0 +1,120 @@
+.layout { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky; top: 0; z-index: 200;
+  height: 58px;
+  background: var(--nav-blur);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 24px; gap: 8px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 17px; font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+.nav-logo strong { color: var(--accent); }
+.nav-logo svg { color: var(--accent); }
+
+.nav-links { display: flex; align-items: center; gap: 2px; flex: 1; }
+.nav-link {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 8px;
+  font-size: 14px; font-weight: 500;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+.nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+.nav-link.active { background: var(--accent-light); color: var(--accent); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+
+/* Theme picker */
+.theme-picker { position: relative; }
+.theme-btn {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 10px; font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer; transition: background 0.15s;
+}
+.theme-btn:hover { background: var(--bg-hover); }
+.theme-backdrop { position: fixed; inset: 0; z-index: 9; }
+.theme-dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  background: var(--bg-surface); border: 1px solid var(--border-strong);
+  border-radius: 10px; padding: 6px;
+  min-width: 130px; z-index: 10;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.15s ease;
+}
+.theme-option {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; padding: 8px 10px; border-radius: 6px;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-secondary); background: transparent; border: none;
+  cursor: pointer; transition: background 0.15s;
+}
+.theme-option:hover { background: var(--bg-hover); color: var(--text-primary); }
+.theme-option.active { color: var(--accent); background: var(--accent-light); }
+
+/* Avatar */
+.nav-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent-light); border: 2px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: var(--accent);
+  cursor: pointer; overflow: hidden; transition: opacity 0.2s;
+}
+.nav-avatar:hover { opacity: 0.85; }
+.nav-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Mobile burger */
+.nav-burger {
+  display: none; background: none; border: none;
+  color: var(--text-primary); padding: 4px;
+}
+
+/* ── PAGE ── */
+.page { flex: 1; }
+
+/* ── DRAWER ── */
+.drawer-backdrop {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(3px);
+}
+.drawer {
+  position: fixed; top: 0; left: 0; bottom: 0;
+  width: 260px; background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px; display: flex; flex-direction: column; gap: 4px;
+  animation: slideIn 0.2s ease;
+}
+.drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; padding: 0 8px;
+  button { background: none; border: none; color: var(--text-muted); cursor: pointer; }
+}
+.drawer-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 12px; border-radius: 8px;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-secondary); text-decoration: none;
+  transition: background 0.15s;
+}
+.drawer-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.drawer-item.active { background: var(--accent-light); color: var(--accent); }
+.drawer-themes { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 16px; display: flex; flex-direction: column; gap: 4px; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .navbar { padding: 0 16px; }
+}

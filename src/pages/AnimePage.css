@@ -1,0 +1,158 @@
+.anime-page { min-height: 100vh; }
+
+/* Hero */
+.ap-hero {
+  height: 260px; position: relative;
+  background-size: cover; background-position: center top;
+  background-color: var(--bg-elevated);
+}
+.ap-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, var(--bg-base) 100%);
+}
+.ap-hero-content { position: relative; z-index: 1; padding: 20px 40px; }
+.ap-back {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.4); color: #fff;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: inherit; backdrop-filter: blur(4px);
+  transition: background 0.15s;
+}
+.ap-back:hover { background: rgba(0,0,0,0.6); }
+
+/* Main layout */
+.ap-main {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 0 40px 40px;
+  margin-top: -80px;
+  position: relative; z-index: 1;
+}
+
+/* Poster col */
+.ap-poster-col { display: flex; flex-direction: column; gap: 12px; }
+.ap-poster {
+  width: 100%; border-radius: 12px; overflow: hidden;
+  border: 3px solid var(--bg-elevated);
+  box-shadow: var(--shadow);
+  aspect-ratio: 2/3; background: var(--bg-card);
+}
+.ap-poster img { width: 100%; height: 100%; object-fit: cover; }
+.ap-poster-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+
+.ap-list-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: 100%; padding: 11px; border-radius: 10px; border: none;
+  background: var(--accent); color: #fff;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: background 0.2s;
+}
+.ap-list-btn:hover { background: var(--accent-hover); }
+
+.ap-fav-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: 100%; padding: 10px; border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text-secondary);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: all 0.15s;
+}
+.ap-fav-btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.ap-fav-btn.active { background: rgba(233,100,121,0.1); border-color: var(--accent-2); color: var(--accent-2); }
+
+.ap-quick-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; text-align: center;
+}
+.aq-stat {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 4px;
+}
+.aq-stat span {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  font-size: 14px; font-weight: 700; color: var(--text-primary);
+}
+.aq-stat small { font-size: 10px; color: var(--text-muted); margin-top: 2px; display: block; }
+
+.ap-info-list {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.ap-info-row {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 8px; padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.ap-info-row:last-child { border-bottom: none; }
+.ap-info-label { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; padding-top: 1px; }
+.ap-info-value { font-size: 13px; color: var(--text-primary); }
+
+.ap-section-mini { }
+.ap-mini-label { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 7px; }
+
+/* Content col */
+.ap-content-col { padding-top: 16px; }
+.ap-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
+.ap-title-jp { font-size: 15px; color: var(--text-muted); margin-top: 4px; }
+.ap-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.ap-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+.ap-badge.airing { background: var(--accent); color: #fff; }
+
+.ap-my-entry {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px; margin-top: 16px;
+}
+.my-entry-grid {
+  display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.my-entry-grid > div { display: flex; flex-direction: column; gap: 3px; }
+.my-entry-grid small { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+.my-entry-grid strong { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.my-entry-notes { flex: 1 0 100%; }
+.my-entry-notes p { font-size: 13px; color: var(--text-secondary); font-style: italic; margin-top: 3px; }
+.ap-progress-bar { height: 4px; background: var(--bg-elevated); border-radius: 2px; overflow: hidden; }
+.ap-progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.5s ease; }
+
+.ap-section { margin-top: 24px; }
+.ap-section h3 {
+  font-size: 14px; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.7px;
+  margin-bottom: 10px;
+}
+.ap-synopsis { font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
+
+.ap-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.ap-tag {
+  padding: 5px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+  background: var(--bg-elevated); color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.ap-tag.genre { background: var(--accent-light); color: var(--accent); border-color: var(--accent-light); }
+
+.ap-trailer-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 10px;
+  background: rgba(255,0,0,0.1); color: #ff4444;
+  font-size: 13px; font-weight: 600; border: 1px solid rgba(255,0,0,0.2);
+  transition: background 0.15s;
+}
+.ap-trailer-link:hover { background: rgba(255,0,0,0.2); }
+
+.ap-mal-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted);
+  transition: color 0.15s;
+}
+.ap-mal-link:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .ap-main { grid-template-columns: 1fr; padding: 0 16px 32px; margin-top: -40px; }
+  .ap-poster { max-width: 160px; margin: 0 auto; }
+  .ap-hero-content { padding: 20px 16px; }
+  .ap-title { font-size: 22px; }
+}

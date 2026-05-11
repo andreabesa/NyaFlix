@@ -1,0 +1,26 @@
+{
+  "name": "anitrack2",
+  "version": "1.0.0",
+  "description": "Tu página personal de colección de anime, inspirada en AniList y MyAnimeList.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "date-fns": "^4.1.0",
+    "firebase": "12.13.0",
+    "lucide-react": "^1.14.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router-dom": "^7.15.0",
+    "vite": "^8.0.11",
+    "zustand": "^5.0.13"
+  }
+}
