@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useStore } from '../store/useStore'
+import useAuthStore from "../store/authStore";
 import {
   Home, Search, BookMarked, Calendar, User, Sun, Moon,
   Tv2, Menu, X, Star, Heart, ChevronDown, Layers
@@ -21,6 +22,23 @@ const THEMES = [
   { id: 'amoled', label: 'AMOLED',  icon: '⚫' },
 ]
 
+function Header() {
+  const { user, logout } = useAuthStore();
+
+   return (
+    <header>
+      {/* ... tu header existente ... */}
+      {user && (
+        <div className="user-info">
+          <img src={user.photoURL || "/default-avatar.png"} alt="avatar" width="32" style={{borderRadius:"50%"}} />
+          <span>{user.displayName || user.email}</span>
+          <button onClick={logout}>Cerrar sesión</button>
+        </div>
+      )}
+    </header>
+  );
+}
+
 export default function Layout({ children }) {
   const { user, theme, setTheme } = useStore()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -37,7 +55,7 @@ export default function Layout({ children }) {
 
         <NavLink to="/" className="nav-logo">
           <Tv2 size={22} />
-          <span>Ani<strong>Track</strong></span>
+          <span>Nya<strong>Flix</strong></span>
         </NavLink>
 
         <div className="nav-links">

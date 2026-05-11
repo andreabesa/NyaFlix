@@ -130,43 +130,31 @@ function App() {
 }
 
 export default App;
-
-import { useState, useEffect } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import Auth from "./components/Auth";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
+    const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
     });
 
-    return () => unsubscribe();
+    return () => unsub();
   }, []);
-
-  if (!user) {
-    return <Auth setUser={setUser} />;
-  }
 
   return (
     <div>
-      <h1>Bienvenido {user.displayName}</h1>
+      <Navbar user={user} />
 
-      <img
-        src={user.photoURL}
-        alt="avatar"
-        width={50}
-        style={{ borderRadius: "50%" }}
-      />
-
-      <br />
-
-      <button onClick={() => signOut(auth)}>
-        Cerrar sesión
-      </button>
+      {user ? (
+        <h1>Bienvenido {user.displayName}</h1>
+      ) : (
+        <h1>Por favor inicia sesión</h1>
+      )}
     </div>
   );
 }
