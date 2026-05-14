@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 // Importa los servicios que necesites, ej: Auth o Firestore
-import { getAuth } from "firebase/auth";
+import { getAuth , GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Usa las variables de entorno de Vite para mayor seguridad
@@ -17,3 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const googleProvider = new GoogleAuthProvider();

@@ -118,3 +118,32 @@
   .nav-burger { display: flex; }
   .navbar { padding: 0 16px; }
 }
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-username {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-logout {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-logout:hover {
+  color: var(--red);
+  background: rgba(248, 113, 113, 0.1);
+}

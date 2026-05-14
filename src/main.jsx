@@ -5,9 +5,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App";
 import LoginPage from "./pages/LoginPage";
 import useAuthStore from "./store/authStore";
+import "./styles/global.css";
 import "./pages/LoginPage.css";
 
-// Componente para rutas protegidas
+// ← AÑADE ESTO: aplicar tema antes de renderizar
+const savedTheme = localStorage.getItem("theme") || "dark";
+document.documentElement.setAttribute("data-theme", savedTheme);
+
 function PrivateRoute({ children }) {
   const { user, loading } = useAuthStore();
   if (loading) return <div>Cargando...</div>;

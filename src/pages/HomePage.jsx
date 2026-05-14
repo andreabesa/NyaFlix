@@ -6,7 +6,7 @@ import AnimeCard from '../components/AnimeCard'
 import { TrendingUp, Star, BookMarked, Calendar, Play } from 'lucide-react'
 import './HomePage.css'
 
-export default function HomePage() {
+export default function HomePage( ) {
   const { user, collection, getStats } = useStore()
   const [trending, setTrending] = useState([])
   const [loading, setLoading] = useState(true)

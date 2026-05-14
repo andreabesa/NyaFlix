@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
+import { useStore } from "./useStore";
 
 const useAuthStore = create((set) => ({
   user: null,
@@ -15,8 +16,11 @@ const useAuthStore = create((set) => ({
   error: null,
 
   init: () => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       set({ user, loading: false });
+      if (user) {
+        await useStore.getState().loadFromFirestore(user);
+      }
     });
   },
 
@@ -50,6 +54,7 @@ const useAuthStore = create((set) => ({
   logout: async () => {
     await signOut(auth);
     set({ user: null });
+    useStore.setState({ collection: [], user: { username: "Otaku", bio: "", avatar: "" } });
   },
 }));
 
